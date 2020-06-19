@@ -1,5 +1,5 @@
 ---
-title:  "django 시작"
+title:  "Start django"
 excerpt: "django 로 hello world 출력"
 categories:
   - blog

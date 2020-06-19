@@ -13,39 +13,39 @@ last_modified_at: 2020-06-18T01:22:00
 ### 프로젝트 폴더 생성  
 
 ```bash
-mkdir "folder name"
+$ mkdir "folder name"
 ```
 
 ### 프로젝트 폴더로 이동
 ```bash
-cd "folder name"
+$ cd "folder name"
 ```
 
 
 ### django 설치   
 ```bash
-pip install django
+$ pip install django
 ```  
 
 ### 프로젝트 생성  
 ```bash
-django-admin startproject config .
+$ django-admin startproject config .
 ```
 
 ### migrate  
 ```bash
-python manage.py migrate
+$ python manage.py migrate
 ```
 
 ### 서버 실행  
 ```bash
-python manage.py runserver  
+$ python manage.py runserver  
 ```
 http://127.0.0.1:8000/ 접속  
 
 ### 관리자 계정 생성  
 ```bash
-python manage.py createsuperuser  
+$ python manage.py createsuperuser  
 ID 입력
 e-mail 입력
 password 입력
@@ -56,7 +56,7 @@ http://127.0.0.1:8000/admin 접속
 
 ### app 생성  
 ```bash
-python manage.py startapp "app name"  
+$ python manage.py startapp "app name"  
 ```
 
 ### page 생성  
@@ -90,7 +90,7 @@ path('hello_world/', include('hello.urls'))
 ```  
 ### 서버 실행  
 ```bash
-python manage.py runserver
+$ python manage.py runserver
 ```
 
 {{ page.excerpt }}  

@@ -44,7 +44,7 @@ python manage.py runserver
 http://127.0.0.1:8000/ 접속  
 
 ### 관리자 계정 생성  
-```python
+```bash
 python manage.py createsuperuser  
 ID 입력
 e-mail 입력

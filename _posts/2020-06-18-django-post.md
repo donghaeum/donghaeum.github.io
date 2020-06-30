@@ -21,7 +21,6 @@ $ mkdir "folder name"
 $ cd "folder name"
 ```
 
-
 ### django 설치   
 ```bash
 $ pip install django

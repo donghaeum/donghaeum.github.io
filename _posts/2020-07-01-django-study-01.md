@@ -7,9 +7,9 @@ tags:
   - [blog, django, dev]
 last_modified_at: 2020-06-18T01:22:00
 ---
-### Polls
+## Polls App 만들기
 
-Project 생성
+### Project 생성
 ```zsh
 django-admin startproject config .
 ```
@@ -17,13 +17,14 @@ django-admin startproject config .
 python manage.py migrate
 ```
 
-App 생성
+### App 생성
 ```zsh
 python manage.py startapp polls
 ```
 
-Setting.py 수정
-config/setting.py
+### Setting.py 수정  
+* config / setting.py
+
 ```python
 INSTALLED_APPS = [
   'django.contrib.admin',
@@ -35,3 +36,196 @@ INSTALLED_APPS = [
   'polls',
 ]
 ```
+
+### Model
+* polls / models.py  
+
+```python
+from django.db import models
+
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+    def __str__(self):
+        return self.question_text
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+    def __str__(self):
+        return self.choice_text
+```
+
+### Database 생성
+```zsh
+python manage.py makemigrations polls
+```
+```zsh
+python manage.py migrate
+```
+
+### Admin
+
+```zsh
+python manage.py createsuperuser
+ID 입력
+e-mail 입력
+password 입력
+```
+
+* polls / admin.py
+
+```python
+from django.contrib import admin
+from .models import Question, Choice
+
+class ChoiceInline(admin.TabularInline):
+    model = Choice
+    extra = 3
+class QuestionAdmin(admin.ModelAdmin):
+    inlines = [ChoiceInline]
+admin.site.register(Question, QuestionAdmin)
+```
+
+#### View
+* polls / view.py 수정
+
+#### Index View
+```python
+from .models import Question
+
+def index(request):
+    latest_question_list = Question.objects.order_by("-pub_date")
+    context = {'latest_question_list': latest_question_list}
+    return render(request, 'polls/index.html', context)
+```
+#### Detail View
+```python
+from django.shortcuts import render, get_object_or_404
+
+def detail(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/detail.html', {'question': question})
+```
+
+#### Results View
+```python
+def results(request, question_id):
+    question = get_object_or_404(Question, pk=question_id)
+    return render(request, 'polls/results.html', {'question': question})
+```
+
+#### Vote view
+```python
+from django.http import HttpResponseRedirect
+
+def vote(request, question_id):
+    question = Question.objects.get(pk=question_id)
+    selected_choice = question.choice_set.get(pk=request.POST['choice'])
+    selected_choice.votes += 1
+    selected_choice.save()
+    return HttpResponseRedirect('results')
+```
+
+### Url
+* polls / urls.py 생성
+
+```python
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('<int:question_id>/', views.detail, name="detail"),
+    path('<int:question_id>/results', views.results, name='results'),
+    path('<int:question_id>/vote', views.vote, name='vote'),
+]
+```
+
+* config / urls.py 수정
+
+```python
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('polls/', include('polls.urls'))
+]
+```
+
+### Templates
+
+* polls / templates / polls 폴더 생성
+
+#### Index.html
+
+* polls / templates / polls / index.html 생성
+
+```html
+<body>
+{% if latest_question_list %}
+    <ul>
+        {% for question in latest_question_list %}
+            <li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available</p>
+{% endif %}
+</body>
+```
+
+#### Detail.html
+
+* polls / templates / polls / detial.html 생성
+
+```html
+<body>
+    <h1>{{ question.question_text }}</h1>
+      <form action="/polls/{{ question.id }}/vote" method="post">
+        {% for choice in question.choice_set.all %}
+          <input type="radio" name="choice" value="{{ choice.id }}">{{ choice.choice_text }}</input><br>
+        {% endfor %}
+        <input type="submit" value="vote">
+    </form>
+</body>
+```
+
+#### Results.html
+
+* polls / templates / polls / results.html 생성
+
+```html
+<body>
+    <h1>{{ question.question_text }}</h1>
+    <ul>
+        {% for choice in question.choice_set.all %}
+            <li>{{ choice.choice_text }}:{{ choice.votes }}</li>
+        {% endfor %}
+    </ul>
+</body>
+```
+
+### CSRF 공격 방어 기능 삭제
+
+* config / settings.py
+
+```python
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware', # 주석 처리
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+```
+
+### App 실행
+
+```zsh
+python manage.py runserver
+```
+
+http://127.0.0.1:8000/polls/ 접속

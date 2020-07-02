@@ -5,7 +5,7 @@ categories:
   - blog
 tags:
   - [blog, django, dev]
-last_modified_at: 2020-06-18T01:22:00
+last_modified_at: 2020-07-02T17:00:00
 ---
 ## Bookmark App 만들기
 

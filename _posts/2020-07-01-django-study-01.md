@@ -186,6 +186,7 @@ urlpatterns = [
 
 * polls / templates / polls / detial.html 생성
 
+{% raw %}
 ```html
 <body>
     <h1>{{ question.question_text }}</h1>
@@ -197,11 +198,13 @@ urlpatterns = [
     </form>
 </body>
 ```
+{% endraw %}
 
 #### Results.html
 
 * polls / templates / polls / results.html 생성
 
+{% raw %}
 ```html
 <body>
     <h1>{{ question.question_text }}</h1>
@@ -212,6 +215,7 @@ urlpatterns = [
     </ul>
 </body>
 ```
+{% endraw %}
 
 ### CSRF 공격 방어 기능 삭제
 

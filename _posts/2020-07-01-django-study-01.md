@@ -11,6 +11,9 @@ last_modified_at: 2020-06-18T01:22:00
 
 ### Project 생성
 ```zsh
+mkdir polls_app
+```
+```zsh
 django-admin startproject config .
 ```
 ```
@@ -33,7 +36,7 @@ INSTALLED_APPS = [
   'django.contrib.sessions',
   'django.contrib.messages',
   'django.contrib.staticfiles',
-  'polls',
+  'polls', # 추가
 ]
 ```
 
@@ -88,7 +91,7 @@ admin.site.register(Question, QuestionAdmin)
 ```
 
 #### View
-* polls / view.py 수정
+* polls / views.py 수정
 
 #### Index View
 ```python

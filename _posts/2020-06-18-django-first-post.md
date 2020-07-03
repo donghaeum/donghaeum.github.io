@@ -48,6 +48,10 @@ $ python manage.py runserver
 ```
 http://127.0.0.1:8000/ 접속  
 
+### 서버 실행 화면
+***
+<img src="/assets/images/startproject.png">
+
 ### 관리자 계정 생성  
 ***
 ```bash
@@ -57,6 +61,21 @@ e-mail 입력
 password 입력
 ``` 
 http://127.0.0.1:8000/admin 접속  
+
+### 관리자 페이지 실행 화면
+
+#### 관리자 계정으로 로그인
+***
+<img src="/assets/images/django_admin01.png">
+
+#### 관리자 페이지 화면
+***
+<img src="/assets/images/django_admin02.png">
+
+#### 생성한 관리자 계정 확인
+***
+<img src="/assets/images/django_admin03.png">
+
 
 ## django 로 hello world! 출력하기
 django 로 hello world 출력
@@ -104,6 +123,12 @@ path('hello_world/', include('hello.urls'))
 ```bash
 $ python manage.py runserver
 ```
+
+http://127.0.0.1:8000/hello_world/ 접속
+
+### 출력 화면
+***
+<img src="/assets/images/hello_world.png">
 
 {{ page.excerpt }}  
 최종 수정 시간: {{ page.last_modified_at }}

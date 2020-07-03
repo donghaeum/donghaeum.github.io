@@ -97,6 +97,20 @@ class QuestionAdmin(admin.ModelAdmin):
 admin.site.register(Question, QuestionAdmin)
 ```
 
+### 관리자 페이지에서 Question 생성
+***
+http://127.0.0.1:8000/admin/ 접속 후 생성한 ID로 로그인
+
+생성된 Quesiton 확인
+
+<img src="/assets/images/polls_admin01.png">
+
+Question 접속 / Add Question 클릭
+
+Question 내용 작성 후 SAVE
+
+<img src="/assets/images/polls_admin02.png">
+
 #### View
 ***
 * polls / views.py 수정
@@ -197,7 +211,7 @@ urlpatterns = [
 
 #### Detail.html
 ***
-* polls / templates / polls / detial.html 생성
+* polls / templates / polls / detail.html 생성
 
 {% raw %}
 ```html
@@ -253,6 +267,19 @@ python manage.py runserver
 ```
 
 http://127.0.0.1:8000/polls/ 접속
+
+### Polls 실행 화면
+#### 투표 기본 화면
+***
+<img src="/assets/images/polls_result01.png">
+
+#### 투표 상세 화면
+***
+<img src="/assets/images/polls_result02.png">
+
+#### 투표 결과 화면
+***
+<img src="/assets/images/polls_result03.png">
 
 {{ page.excerpt }}  
 최종 수정 시간: {{ page.last_modified_at }}

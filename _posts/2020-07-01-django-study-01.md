@@ -9,7 +9,10 @@ last_modified_at: 2020-07-02T17:00:00
 ---
 ## Polls App 만들기
 
+Django 를 이용해 Polls app 을 만들어 본다.
+
 ### Project 생성
+***
 ```zsh
 mkdir polls_app
 ```
@@ -21,11 +24,13 @@ python manage.py migrate
 ```
 
 ### App 생성
+***
 ```zsh
 python manage.py startapp polls
 ```
 
 ### Setting.py 수정  
+***
 * config / setting.py
 
 ```python
@@ -41,6 +46,7 @@ INSTALLED_APPS = [
 ```
 
 ### Model
+***
 * polls / models.py  
 
 ```python
@@ -60,6 +66,7 @@ class Choice(models.Model):
 ```
 
 ### Database 생성
+***
 ```zsh
 python manage.py makemigrations polls
 ```
@@ -68,7 +75,7 @@ python manage.py migrate
 ```
 
 ### Admin
-
+***
 ```zsh
 python manage.py createsuperuser
 ID 입력
@@ -91,9 +98,11 @@ admin.site.register(Question, QuestionAdmin)
 ```
 
 #### View
+***
 * polls / views.py 수정
 
 #### Index View
+***
 ```python
 from .models import Question
 
@@ -103,6 +112,7 @@ def index(request):
     return render(request, 'polls/index.html', context)
 ```
 #### Detail View
+***
 ```python
 from django.shortcuts import render, get_object_or_404
 
@@ -112,6 +122,7 @@ def detail(request, question_id):
 ```
 
 #### Results View
+***
 ```python
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
@@ -119,6 +130,7 @@ def results(request, question_id):
 ```
 
 #### Vote view
+***
 ```python
 from django.http import HttpResponseRedirect
 
@@ -131,6 +143,7 @@ def vote(request, question_id):
 ```
 
 ### Url
+***
 * polls / urls.py 생성
 
 ```python
@@ -157,11 +170,11 @@ urlpatterns = [
 ```
 
 ### Templates
-
+***
 * polls / templates / polls 폴더 생성
 
 #### Index.html
-
+***
 * polls / templates / polls / index.html 생성
 
 {% raw %}
@@ -183,7 +196,7 @@ urlpatterns = [
 {% endraw %}
 
 #### Detail.html
-
+***
 * polls / templates / polls / detial.html 생성
 
 {% raw %}
@@ -201,7 +214,7 @@ urlpatterns = [
 {% endraw %}
 
 #### Results.html
-
+***
 * polls / templates / polls / results.html 생성
 
 {% raw %}
@@ -218,7 +231,7 @@ urlpatterns = [
 {% endraw %}
 
 ### CSRF 공격 방어 기능 삭제
-
+***
 * config / settings.py
 
 ```python
@@ -234,7 +247,7 @@ MIDDLEWARE = [
 ```
 
 ### App 실행
-
+***
 ```zsh
 python manage.py runserver
 ```

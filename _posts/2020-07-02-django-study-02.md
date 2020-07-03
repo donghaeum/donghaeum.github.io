@@ -8,8 +8,10 @@ tags:
 last_modified_at: 2020-07-02T17:00:00
 ---
 ## Bookmark App 만들기
+Django를 이용해 Bookmark app 만들기
 
 ### Project 생성
+***
 ```zsh
 mkdir bookmark_app
 ```
@@ -24,7 +26,7 @@ python manage.py startapp bookmark
 ```
 
 ### Settings.py 수정
-
+***
 * config / settings.py
 
 ```python
@@ -57,6 +59,7 @@ TEMPLATES = [
 ```
 
 ### Model
+***
 * bookmark / models.py 수정
 
 ```python
@@ -78,6 +81,7 @@ python manage.py migrate
 ```
 
 ### Admin 생성
+***
 ```zsh
 python manage.py createsuperuser
 ID 입력
@@ -95,7 +99,7 @@ admin.site.register(Bookmark)
 ```
 
 ### View
-
+***
 * bookmark / views.py 수정
 
 ```python
@@ -125,7 +129,7 @@ class BookmarkDeleteView(DeleteView):
 ```
 
 ### Url
-
+***
 * bookmark / urls.py 생성
 
 ```python
@@ -151,11 +155,11 @@ urlpatterns = [
 ]
 ```
 ### Templates 생성
-
+***
 * bookmark_app / templates 폴더 생성  
 
 #### Base Template
-
+***
 * bookmark_app / templates / Base.html 생성
 
 {% raw %}
@@ -201,11 +205,11 @@ urlpatterns = [
 {% endraw %}
 
 ### Bookmark Template
-
+***
 * bookmark / templates / bookmark 폴더 생성
 
 #### bookmark_confirm_delete.html
-
+***
 * bookmark / templates / bookmark / bookmark_confirm_delete.html 생성
 
 {% raw %}
@@ -229,7 +233,7 @@ urlpatterns = [
 {% endraw %}
 
 #### bookmark_detail.html
-
+***
 * bookmark / templates / bookmark / bookmark_detail.html 생성
 
 {% raw %}
@@ -248,7 +252,7 @@ urlpatterns = [
 {% endraw %}
 
 #### bookmark_form.html
-
+***
 * bookmark / templates / bookmark / bookmark_form.html 생성
 
 {% raw %}
@@ -295,7 +299,7 @@ urlpatterns = [
 {% endraw %}
 
 #### bookmark_list.html
-
+***
 * bookmark /  templates / bookmark_list.html 생성
 
 {% raw %}
@@ -372,7 +376,7 @@ urlpatterns = [
 {% endraw %}
 
 #### bookamrk_update.html
-
+***
 * bookmark / templates / bookmark_update.html 생성
 
 {% raw %}
@@ -394,7 +398,7 @@ urlpatterns = [
 {% endraw %}
 
 ### App 실행
-
+***
 ```zsh
 python manage.py runserver
 ```

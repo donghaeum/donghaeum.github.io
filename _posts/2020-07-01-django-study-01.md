@@ -281,5 +281,3 @@ http://127.0.0.1:8000/polls/ 접속
 ***
 <img src="/assets/images/polls_result03.png">
 
-{{ page.excerpt }}  
-최종 수정 시간: {{ page.last_modified_at }}

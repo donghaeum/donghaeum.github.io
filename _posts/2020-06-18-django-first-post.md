@@ -130,5 +130,3 @@ http://127.0.0.1:8000/hello_world/ 접속
 ***
 <img src="/assets/images/hello_world.png">
 
-{{ page.excerpt }}  
-최종 수정 시간: {{ page.last_modified_at }}

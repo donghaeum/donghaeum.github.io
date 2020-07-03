@@ -29,9 +29,9 @@ python manage.py migrate
 python manage.py startapp polls
 ```
 
-### Setting.py 수정  
+### Settings.py 수정  
 ***
-* config / setting.py
+* config / settings.py
 
 ```python
 INSTALLED_APPS = [

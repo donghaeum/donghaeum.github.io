@@ -405,3 +405,22 @@ python manage.py runserver
 
 http://127.0.0.1:8000/bookmark/ 접속
 
+### 북마크 실행 화면
+#### 북마크 기본 화면
+***
+<img src="/assets/images/bookmark01.png">
+
+#### 북마크 추가 화면
+***
+<img src="/assets/images/bookmark02.png">
+
+
+<img src="/assets/images/bookmark03.png">
+
+#### 북마크 수정 화면
+***
+<img src="/assets/images/bookmark04.png">
+
+#### 북마크 삭제 화면
+***
+<img src="/assets/images/bookmark05.png">

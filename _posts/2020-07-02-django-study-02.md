@@ -414,7 +414,7 @@ http://127.0.0.1:8000/bookmark/ 접속
 ***
 <img src="/assets/images/bookmark02.png">
 
-
+***
 <img src="/assets/images/bookmark03.png">
 
 #### 북마크 수정 화면

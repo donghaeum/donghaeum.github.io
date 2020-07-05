@@ -1,5 +1,5 @@
 ---
-title:  "Project File"
+title:  "Django Project Files"
 excerpt: "Django project 기본 파일 설명"
 categories:
   - blog

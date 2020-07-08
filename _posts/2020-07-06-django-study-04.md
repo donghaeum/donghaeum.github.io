@@ -32,5 +32,27 @@ python manage.py migrate
 ```zsh
 python manage.py startapp user
 ```
+### Settings.py 설정
+```python
+INSTALLED_APPS = [
+  ...
+  'user',
+]
+```
 
-
+### Models.py 설정
+```python
+from django.db import models
+class User(models.Model):
+    username = models.CharField(max_length=32, verbose_name='사용자명')
+    password = models.CharField(max_length=64, verbose_name='비밀번호')
+    useremail = models.EmailField(max_length=128, verbose_name='이메일')
+    registered_dttm = models.DateTimeField(auto_now_add=True, verbose_name='등록일')
+    def __str__(self):
+        return self.username
+    class Meta:
+        db_table = 'board_user'
+        verbose_name = '사용자'
+        verbose_name_plural = '사용자'
+```
+### 

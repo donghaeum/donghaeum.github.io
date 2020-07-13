@@ -63,6 +63,15 @@ class User(models.Model):
         verbose_name = '사용자'
         verbose_name_plural = '사용자'
 ```
+
+```zsh
+$ python manage.py makemigrations
+```
+
+```zsh
+$ python manage.py migrate
+```
+
 ### Views.py 설정
 ```python
 from django.http import HttpResponse

@@ -34,11 +34,11 @@ Name -> Hello_World (첫 글자는 대문자)
 
 public static void main(String[] args) 체크
 
-<img src="/assets/images/java/java_04.png">
+<img src="/assets/images/java/java_05.png">
 
 #### 생성된 화면
 
-<img src="/assets/images/java/java_05.png">
+<img src="/assets/images/java/java_04.png">
 
 ### Hello World! 출력
 

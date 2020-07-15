@@ -50,7 +50,7 @@ http://127.0.0.1:8000/ 접속
 
 ### 서버 실행 화면
 ***
-<img src="/assets/images/startproject.png">
+<img src="/assets/images/django/startproject.png">
 
 ### 관리자 계정 생성  
 ***
@@ -66,15 +66,15 @@ http://127.0.0.1:8000/admin 접속
 
 #### 관리자 계정으로 로그인
 ***
-<img src="/assets/images/django_admin01.png">
+<img src="/assets/images/django/django_admin01.png">
 
 #### 관리자 페이지 화면
 ***
-<img src="/assets/images/django_admin02.png">
+<img src="/assets/images/django/django_admin02.png">
 
 #### 생성한 관리자 계정 확인
 ***
-<img src="/assets/images/django_admin03.png">
+<img src="/assets/images/django/django_admin03.png">
 
 
 ## django 로 hello world! 출력하기
@@ -128,5 +128,5 @@ http://127.0.0.1:8000/hello_world/ 접속
 
 ### 출력 화면
 ***
-<img src="/assets/images/hello_world.png">
+<img src="/assets/images/django/hello_world.png">
 

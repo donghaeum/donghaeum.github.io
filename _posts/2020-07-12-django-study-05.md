@@ -338,24 +338,24 @@ http://127.0.0.1:8000/ 접속
 
 #### 게시판 기본 화면
 ***
-<img src="/assets/images/board_01.png">
+<img src="/assets/images/django/board_01.png">
 
 #### 게시판 회원가입 화면
 ***
-<img src="/assets/images/board_02.png">
+<img src="/assets/images/django/board_02.png">
 
 #### 게시판 로그인 화면
 ***
-<img src="/assets/images/board_03.png">
+<img src="/assets/images/django/board_03.png">
 
 #### 게시판 로그인 시 기본 화면
 ***
-<img src="/assets/images/board_06.png">
+<img src="/assets/images/django/board_06.png">
 
 #### 게시판 글 목록 화면
 ***
-<img src="/assets/images/board_04.png">
+<img src="/assets/images/django/board_04.png">
 
 #### 게시판 글 쓰기 화면
 ***
-<img src="/assets/images/board_05.png">
+<img src="/assets/images/django/board_05.png">

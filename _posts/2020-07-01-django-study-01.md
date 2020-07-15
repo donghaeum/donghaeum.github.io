@@ -103,13 +103,13 @@ http://127.0.0.1:8000/admin/ 접속 후 생성한 ID로 로그인
 
 생성된 Quesiton 확인
 
-<img src="/assets/images/polls_admin01.png">
+<img src="/assets/images/django/polls_admin01.png">
 
 Question 접속 / Add Question 클릭
 
 Question 내용 작성 후 SAVE
 
-<img src="/assets/images/polls_admin02.png">
+<img src="/assets/images/django/polls_admin02.png">
 
 #### View
 ***
@@ -271,13 +271,13 @@ http://127.0.0.1:8000/polls/ 접속
 ### Polls 실행 화면
 #### 투표 기본 화면
 ***
-<img src="/assets/images/polls_result01.png">
+<img src="/assets/images/django/polls_result01.png">
 
 #### 투표 상세 화면
 ***
-<img src="/assets/images/polls_result02.png">
+<img src="/assets/images/django/polls_result02.png">
 
 #### 투표 결과 화면
 ***
-<img src="/assets/images/polls_result03.png">
+<img src="/assets/images/django/polls_result03.png">
 

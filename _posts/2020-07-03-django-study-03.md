@@ -4,7 +4,7 @@ excerpt: "Django project 기본 파일 설명"
 categories:
   - blog
 tags:
-  - [blog, diary, dev]
+  - [blog, diary, dev, django]
 last_modified_at: 2020-07-03 T11:00:00
 ---
 

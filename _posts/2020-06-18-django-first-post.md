@@ -4,7 +4,7 @@ excerpt: "django 로 hello world 출력"
 categories:
   - blog
 tags:
-  - [blog, django, dev]
+  - [blog, django, dev, django]
 last_modified_at: 2020-06-18 T01:22:00
 ---
 <!-- GitHub Blog 서비스인 github.io 블로그를 시작합니다. -->

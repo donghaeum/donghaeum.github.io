@@ -4,7 +4,7 @@ excerpt: "django 로 Polls app 만들기"
 categories:
   - blog
 tags:
-  - [blog, django, dev]
+  - [blog, django, dev, django]
 last_modified_at: 2020-07-02 T17:00:00
 ---
 ## Polls App 만들기

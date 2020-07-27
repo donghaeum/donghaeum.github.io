@@ -4,7 +4,7 @@ excerpt: "django 로 게시판 만들기"
 categories:
   - blog
 tags:
-  - [blog, diary, dev]
+  - [blog, diary, dev, django]
 last_modified_at: 2020-07-12 T14:00:00
 ---
 ### 게시판 만들기

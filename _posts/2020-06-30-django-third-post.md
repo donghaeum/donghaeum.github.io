@@ -5,7 +5,7 @@ categories:
   - blog
 tags:
   - [blog, diary, dev]
-last_modified_at: 2020-06-30T12:00:00
+last_modified_at: 2020-06-30 T12:00:00
 ---
 <!-- GitHub Blog 서비스인 github.io 블로그를 시작합니다. -->
 {{ page.excerpt }}  

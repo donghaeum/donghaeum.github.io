@@ -52,15 +52,18 @@ INSTALLED_APPS = [
 ```python
 from django.db import models
 
+# 질문 모델 생성
 class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
+    question_text = models.CharField(max_length=200) # 질문 글자수 최대 200자 설정
+    pub_date = models.DateTimeField('date published') # 시간대별 정렬을 위해 설정
+    # 객체를 문자열로 표현할 때 사용하는 함수
     def __str__(self):
         return self.question_text
+# 선택지 모델 생성
 class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+    question = models.ForeignKey(Question, on_delete=models.CASCADE) # 질문을 받아온다
+    choice_text = models.CharField(max_length=200) # 선택지 글자수 최대 200자 설정
+    votes = models.IntegerField(default=0) # 투표 결과값 기본 0으로 설정
     def __str__(self):
         return self.choice_text
 ```
@@ -89,6 +92,7 @@ password 입력
 from django.contrib import admin
 from .models import Question, Choice
 
+# admin 사이트에서 선택지 설정
 class ChoiceInline(admin.TabularInline):
     model = Choice
     extra = 3
@@ -120,8 +124,9 @@ Question 내용 작성 후 SAVE
 ```python
 from .models import Question
 
+# 기본 화면
 def index(request):
-    latest_question_list = Question.objects.order_by("-pub_date")
+    latest_question_list = Question.objects.order_by("-pub_date") # 시간 순서대로 질문 목록 출력
     context = {'latest_question_list': latest_question_list}
     return render(request, 'polls/index.html', context)
 ```
@@ -130,14 +135,16 @@ def index(request):
 ```python
 from django.shortcuts import render, get_object_or_404
 
+# 상세 화면
 def detail(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
+    question = get_object_or_404(Question, pk=question_id) # object를 가져오거나 없을 시 404 화면 출력
     return render(request, 'polls/detail.html', {'question': question})
 ```
 
 #### Results View
 ***
 ```python
+# 결과 화면
 def results(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'polls/results.html', {'question': question})
@@ -147,13 +154,13 @@ def results(request, question_id):
 ***
 ```python
 from django.http import HttpResponseRedirect
-
+# 투표 화면
 def vote(request, question_id):
     question = Question.objects.get(pk=question_id)
     selected_choice = question.choice_set.get(pk=request.POST['choice'])
-    selected_choice.votes += 1
-    selected_choice.save()
-    return HttpResponseRedirect('results')
+    selected_choice.votes += 1 # 투표 시 결과에 + 1
+    selected_choice.save() # 결과값 저장
+    return HttpResponseRedirect('results') # 결과 화면으로 돌아간다
 ```
 
 ### Url
@@ -165,10 +172,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('<int:question_id>/', views.detail, name="detail"),
-    path('<int:question_id>/results', views.results, name='results'),
-    path('<int:question_id>/vote', views.vote, name='vote'),
+    path('', views.index, name='index'), # 기본 접속 시 url
+    path('<int:question_id>/', views.detail, name="detail"), # 상세 화면 url
+    path('<int:question_id>/results', views.results, name='results'), # 결과 화면 url
+    path('<int:question_id>/vote', views.vote, name='vote'), # 투표 화면 url
 ]
 ```
 
@@ -179,7 +186,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('polls/', include('polls.urls'))
+    path('polls/', include('polls.urls')) # polls app 에서 설정한 url 가져오기
 ]
 ```
 
@@ -193,6 +200,7 @@ urlpatterns = [
 
 {% raw %}
 ```html
+# 기본 화면 템플릿
 <body>
 
 {% if latest_question_list %}
@@ -215,6 +223,7 @@ urlpatterns = [
 
 {% raw %}
 ```html
+# 상세 화면 템플릿
 <body>
     <h1>{{ question.question_text }}</h1>
       <form action="/polls/{{ question.id }}/vote" method="post">
@@ -233,6 +242,7 @@ urlpatterns = [
 
 {% raw %}
 ```html
+# 결과 화면 템플릿
 <body>
     <h1>{{ question.question_text }}</h1>
     <ul>

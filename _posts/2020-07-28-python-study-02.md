@@ -73,7 +73,7 @@ while True:
 
 num_of_data = len(reallink)
 
-print('총 {0}개의 데이터를 수집합니다.'.format(num_of_data))
+print('총 {0}개의 데이터를 수집합니다.'.format(num_of_data)) # 총 데이터량 보여준다
 csvtext = []
 
 for i in tqdm(range(num_of_data)):

@@ -46,6 +46,7 @@ time.sleep(5)
 SCROLL_PAUSE_TIME = 1.0
 reallink = []
 
+# 페이지 스크롤하기
 while True:
     pageString = driver.page_source
     bsObj = BeautifulSoup(pageString, 'lxml')
